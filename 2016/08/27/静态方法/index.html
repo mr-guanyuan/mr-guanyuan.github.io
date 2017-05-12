@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="爱生活 爱代码">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yoursite.com/tags/jQuery/index.html">
+<meta name="description" content="面向对象中的静态方法-静态属性：没有new对象 也能引用静态方法属性">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript之面向对象中的静态方法-静态属性">
+<meta property="og:url" content="http://yoursite.com/2016/08/27/静态方法/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="爱生活 爱代码">
+<meta property="og:description" content="面向对象中的静态方法-静态属性：没有new对象 也能引用静态方法属性">
+<meta property="og:updated_time" content="2017-05-12T08:34:04.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="爱生活 爱代码">
+<meta name="twitter:title" content="JavaScript之面向对象中的静态方法-静态属性">
+<meta name="twitter:description" content="面向对象中的静态方法-静态属性：没有new对象 也能引用静态方法属性">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/jQuery/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/27/静态方法/"/>
 
 
 
 
 
-  <title>标签: jQuery | 我的博客</title>
+  <title>JavaScript之面向对象中的静态方法-静态属性 | 我的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -157,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -241,44 +243,168 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>jQuery<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/27/静态方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="路人乙丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript之面向对象中的静态方法-静态属性</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-27T11:40:43+08:00">
+                2016-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <ul>
+<li>面向对象中的静态方法-静态属性：没有new对象 也能引用静态方法属性<a id="more"></a>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bird</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.wing = <span class="number">2</span>;</div><div class="line">  <span class="keyword">this</span>.fly = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">'飞'</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// var maque = new Bird();//我们可以调用麻雀的属性和方法</span></div></pre></td></tr></table></figure>
+<p>思考：可不可以不创建麻雀对象 直接调用Bird的相关方法</p>
+<ul>
+<li>函数是什么？是变量 是什么类型的变量？是一个对象类型的变量</li>
+<li>js里面有几样东西不通过构造器构造出来</li>
+<li>原生数据类型有几种：<code>null</code> <code>undefined</code> <code>true</code> <code>false</code>  <code>字符型</code>(‘hello’) 数值型(12) 这五种不用构造器</li>
+<li>对象 函数 数组 都是通过构造器构造出来的（自然是对象）</li>
+</ul>
+<ul>
+<li>既然是对象 就能给对象加静态属性</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Bird.ke = <span class="string">'niaoke'</span>;</div><div class="line">Bird.jiao = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">'叽叽喳喳'</span>)&#125;;</div><div class="line"></div><div class="line">Bird.jiao();<span class="comment">//没有new对象 也能引用静态方法属性</span></div></pre></td></tr></table></figure>
+<p>从豆浆机–&gt;制造的流程看 豆浆机充当的是构造函数的角色，如果单独看豆浆机本身 豆浆机也是一部机器 一个对象 也有属性和方法 那么 豆浆机作为对象的属性和方法 就相当于类的静态属性、静态方法</p>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/02/06/jQuery小技巧方法/" itemprop="url">
-              
-                <span itemprop="name">jQuery����</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-02-06T19:55:25+08:00"
-              content="2016-02-06" >
-          02-06
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/27/闭包/" rel="next" title="JavaScript词法分析和作用域闭包">
+                <i class="fa fa-chevron-left"></i> JavaScript词法分析和作用域闭包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/07/BFC/" rel="prev" title="CSS中的BFC">
+                CSS中的BFC <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -286,6 +412,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -321,7 +451,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -343,7 +473,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -493,6 +623,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
