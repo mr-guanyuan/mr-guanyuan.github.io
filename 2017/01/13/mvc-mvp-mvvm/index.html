@@ -1,0 +1,766 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="MVC," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="一、MVC 什么是MVC  MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器） 一个事件的处理大概是这样 用户和应用产生交互 控制器的事件处理器被触发 控制器从模型中请求数据，并将其交给视图 视图将数据呈现给用户">
+<meta name="keywords" content="MVC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVC、MVP、MVVM之间的关系">
+<meta property="og:url" content="http://yoursite.com/2017/01/13/mvc-mvp-mvvm/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="一、MVC 什么是MVC  MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器） 一个事件的处理大概是这样 用户和应用产生交互 控制器的事件处理器被触发 控制器从模型中请求数据，并将其交给视图 视图将数据呈现给用户">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020106.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020107.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
+<meta property="og:updated_time" content="2017-05-12T13:22:16.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVC、MVP、MVVM之间的关系">
+<meta name="twitter:description" content="一、MVC 什么是MVC  MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器） 一个事件的处理大概是这样 用户和应用产生交互 控制器的事件处理器被触发 控制器从模型中请求数据，并将其交给视图 视图将数据呈现给用户">
+<meta name="twitter:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/13/mvc-mvp-mvvm/"/>
+
+
+
+
+
+  <title>MVC、MVP、MVVM之间的关系 | 我的博客</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/13/mvc-mvp-mvvm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="路人乙丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MVC、MVP、MVVM之间的关系</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-13T14:35:24+08:00">
+                2017-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h2><hr>
+<h3 id="什么是MVC"><a href="#什么是MVC" class="headerlink" title="什么是MVC"></a>什么是MVC</h3><hr>
+<ul>
+<li>MVC是一种模式，它将应用分为3个部分：数据（模型）、表现层（视图）、用户交互层（控制器）</li>
+<li>一个事件的处理大概是这样<ul>
+<li>用户和应用产生交互</li>
+<li>控制器的事件处理器被触发</li>
+<li>控制器从模型中请求数据，并将其交给视图</li>
+<li>视图将数据呈现给用户</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="模型（数据保存）"><a href="#模型（数据保存）" class="headerlink" title="模型（数据保存）"></a>模型（数据保存）</h3><hr>
+<ul>
+<li>模型用来存放用户的所有数据对象。比如有一个user模型，用来存放用户列表、他们的属性以及所有和模型有关的逻辑</li>
+<li>模型不必知晓视图和控制器的细节，模型只需包含数据以及直接和这些数据相关的逻辑</li>
+</ul>
+<h3 id="视图（用户界面）"><a href="#视图（用户界面）" class="headerlink" title="视图（用户界面）"></a>视图（用户界面）</h3><hr>
+<ul>
+<li>视图是呈现给用户的，用户与之产生交互。在JavaScript应用中，视图大都是由HTML、css、JavaScript模板组成的</li>
+</ul>
+<h3 id="控制器（业务逻辑）"><a href="#控制器（业务逻辑）" class="headerlink" title="控制器（业务逻辑）"></a>控制器（业务逻辑）</h3><hr>
+<ul>
+<li>控制器是模型和视图之间的纽带。控制器从视图获得事件和输入，对它们进行进行处理，并相应的更新视图。</li>
+<li>当页面加载时，控制器会给视图添加事件监听，比如监听表单提交或按钮点击。然后当用户和你的应用产生交互时，控制器中的事件触发器就开始工作了</li>
+</ul>
+<h3 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h3><hr>
+<ul>
+<li><code>Controller</code> 监听 <code>Model</code> 变化，<code>Model</code> 一变，<code>Controller</code> 就会去更新<code>View</code>。</li>
+<li><p><code>Controller</code> 监听用户交互，用户点了提交或修改按钮，Controller 就要去更新 Model</p>
+</li>
+<li><p><code>View</code> 传送指令到 <code>Controller</code></p>
+</li>
+<li><code>Controller</code> 完成业务逻辑后，要求 <code>Model</code> 改变状态</li>
+<li><code>Model</code> 将新的数据发送到 <code>View</code>，用户得到反馈</li>
+</ul>
+<p>各部分之间的通信方式</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt=""></p>
+<h2 id="互动模式"><a href="#互动模式" class="headerlink" title="互动模式"></a>互动模式</h2><hr>
+<ul>
+<li>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller</li>
+</ul>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020106.png" alt=""></p>
+<ul>
+<li>另一种是直接通过controller接受指令</li>
+</ul>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020107.png" alt=""></p>
+<h2 id="二、MVP"><a href="#二、MVP" class="headerlink" title="二、MVP"></a>二、MVP</h2><hr>
+<ul>
+<li><code>MVP</code> 模式将 <code>Controller 改名为</code>Presenter`，同时改变了通信方向</li>
+</ul>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt=""></p>
+<ul>
+<li>各部分之间的通信，都是双向的。</li>
+<li><code>View</code> 与<code>Model</code> 不发生联系，都通过 <code>Presenter</code> 传递。</li>
+<li><code>View</code> 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里</li>
+</ul>
+<h2 id="三、MVVM"><a href="#三、MVVM" class="headerlink" title="三、MVVM"></a>三、MVVM</h2><hr>
+<ul>
+<li><code>MVVM</code> 模式将 <code>Presenter</code> 改名为 <code>ViewModel</code>，基本上与 <code>MVP</code> 模式完全一致</li>
+<li>唯一的区别是，它采用双向绑定（data-binding）：<code>View</code>的变动，自动反映在 <code>ViewModel</code>，反之亦然</li>
+</ul>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MVC/" rel="tag"># MVC</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/14/各种速查表/" rel="next" title="各种速查表收集整理">
+                <i class="fa fa-chevron-left"></i> 各种速查表收集整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/14/Es6-风格/" rel="prev" title="ES6编码风格">
+                ES6编码风格 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="路人乙丶" />
+          <p class="site-author-name" itemprop="name">路人乙丶</p>
+           
+              <p class="site-description motion-element" itemprop="description">爱生活 爱代码</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、MVC"><span class="nav-number">1.</span> <span class="nav-text">一、MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是MVC"><span class="nav-number">1.1.</span> <span class="nav-text">什么是MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型（数据保存）"><span class="nav-number">1.2.</span> <span class="nav-text">模型（数据保存）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图（用户界面）"><span class="nav-number">1.3.</span> <span class="nav-text">视图（用户界面）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器（业务逻辑）"><span class="nav-number">1.4.</span> <span class="nav-text">控制器（业务逻辑）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结一下："><span class="nav-number">1.5.</span> <span class="nav-text">总结一下：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#互动模式"><span class="nav-number">2.</span> <span class="nav-text">互动模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、MVP"><span class="nav-number">3.</span> <span class="nav-text">二、MVP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、MVVM"><span class="nav-number">4.</span> <span class="nav-text">三、MVVM</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 2017 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">路人乙丶</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

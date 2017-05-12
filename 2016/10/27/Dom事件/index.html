@@ -1,0 +1,757 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="DOM 事件就是指 当页面上发生某一件事的时候激发某一个函数 相当监听/触发设备">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-DOM事件">
+<meta property="og:url" content="http://yoursite.com/2016/10/27/Dom事件/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="DOM 事件就是指 当页面上发生某一件事的时候激发某一个函数 相当监听/触发设备">
+<meta property="og:updated_time" content="2017-05-12T13:00:07.140Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-DOM事件">
+<meta name="twitter:description" content="DOM 事件就是指 当页面上发生某一件事的时候激发某一个函数 相当监听/触发设备">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/27/Dom事件/"/>
+
+
+
+
+
+  <title>JavaScript-DOM事件 | 我的博客</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/27/Dom事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="路人乙丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript-DOM事件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-27T11:40:43+08:00">
+                2016-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><p>DOM 事件就是指 当页面上发生某一件事的时候激发某一个函数 相当监听/触发设备</p>
+<a id="more"></a>
+<p><strong>比如：</strong></p>
+</li>
+<li>元素被单击时 <code>onclick</code></li>
+<li>元素失去焦点时 <code>onblur</code></li>
+<li><p>表单被提交时，用<code>onsubmit</code></p>
+</li>
+<li><p><strong>DOM事件如何声明？</strong></p>
+<ul>
+<li>直接在元素标签中声明 <code>&lt;input type=&#39;button&#39; onclick=&quot;&quot;&gt;</code></li>
+<li>以事件属性附上一个函数变量：例如<code>inputobj.onclick = 一个函数;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="主要的DOM事件：（可以归为3类）"><a href="#主要的DOM事件：（可以归为3类）" class="headerlink" title="- 主要的DOM事件：（可以归为3类）"></a>- <strong>主要的DOM事件：（可以归为3类）</strong></h2><ul>
+<li>页面上的变化引起的 比如 失去焦点 关闭页面</li>
+<li>鼠标变化引起的 比如 鼠标单击 鼠标经过</li>
+<li><p>键盘事件</p>
+<p>其中<code>onsubmit</code>比较特殊 ：</p>
+<p>在<code>&lt;form onsubmit=&#39;return 函数名&#39;&gt;</code>这样函数<code>return false</code>时 才能阻拦表单的提交行为 </p>
+</li>
+</ul>
+<h2 id="鼠标事件："><a href="#鼠标事件：" class="headerlink" title="- 鼠标事件："></a>- <strong>鼠标事件：</strong></h2><pre><code>- `onclick` 当单击时
+- `onmouseOver` 当经过时
+- `onMouseDown` 当鼠标按下时
+- `onMouserUp` 当鼠标抬起时
+- `onMouseMove` 当鼠标移动时
+</code></pre><h2 id="键盘事件："><a href="#键盘事件：" class="headerlink" title="-  键盘事件："></a>-  <strong>键盘事件：</strong></h2><ul>
+<li><code>onchange</code>当内容被改变时[重要]</li>
+<li><code>onSelect</code> 当内容被选中时</li>
+<li><code>onkeydown</code>当键盘按下时</li>
+<li><code>onkeyup</code> 当键盘抬起时</li>
+<li><code>onSubmit</code>当表单提交时[重要]</li>
+<li><p><code>onReset</code>当表单重置时</p>
+</li>
+<li><p><strong>页面事件：</strong></p>
+</li>
+</ul>
+<hr>
+<pre><code>- `onblur` 当失去焦点时
+- `onfocus `当获得焦点时
+- `onload` 当页面加载时
+- `onunload` 当页面关闭时
+</code></pre><ul>
+<li><strong>onblur失去焦点</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Email:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">onblur</span>=<span class="string">"t1();"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>姓名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">onfocus</span>=<span class="string">"t2();"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//失去焦点</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">t1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> con = <span class="built_in">document</span>.getElementsByName(<span class="string">'email'</span>)[<span class="number">0</span>].value;</div><div class="line">    <span class="keyword">if</span>(con == <span class="string">''</span>)&#123;</div><div class="line">        <span class="built_in">document</span>.getElementsByName(<span class="string">'email'</span>)[<span class="number">0</span>].value = prompt(<span class="string">'请输入邮件地址：'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//获得焦点</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">t2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> con = <span class="built_in">document</span>.getElementsByName(<span class="string">'username'</span>)[<span class="number">0</span>];</div><div class="line">    con.style.border = <span class="string">'2px solid red'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>onload</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"t1();"</span> <span class="attr">onunload</span>=<span class="string">"t2();"</span>&gt;</span><span class="comment">&lt;!--  onload写在页面的开始位置 --&gt;</span></div><div class="line">  </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Email:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>姓名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">t1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> con = <span class="built_in">document</span>.getElementsByName(<span class="string">'email'</span>)[<span class="number">0</span>].value=<span class="string">'请填写您的email'</span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">t2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"您真的要关闭吗"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>onmouserover</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onmouseover</span>=<span class="string">"t3();"</span>  <span class="attr">onmouseout</span>=<span class="string">"t4();"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"baidu"</span>&gt;</span></div><div class="line">    百度详细介绍</div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/logo.png"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"xueli"</span> <span class="attr">onchange</span>=<span class="string">"t5();"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>请选择学历<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"大学"</span> &gt;</span>大学<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"中学"</span>&gt;</span>中学<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"初中"</span>&gt;</span>初中<span class="tag">&lt;/<span class="name">option</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"小学"</span>&gt;</span>小学<span class="tag">&lt;/<span class="name">option</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">onsubmit</span>=<span class="string">"return t6();"</span>&gt;</span> <span class="comment">&lt;!-- onsubmit 和return false结合才能阻止提交  地址栏没变化说明阻拦 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Email:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>姓名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交 "</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;style type="text/css"&gt;</div><div class="line">    #img&#123;</div><div class="line">        display: none;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">t1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  alert(<span class="string">'来了'</span>);</div><div class="line">  </div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">t2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  alert(<span class="string">'走了'</span>);</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">t3</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> bd = <span class="built_in">document</span>.getElementById(<span class="string">'baidu'</span>);</div><div class="line">  bd.style.display = <span class="string">'block'</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">t4</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> bd = <span class="built_in">document</span>.getElementById(<span class="string">'baidu'</span>);</div><div class="line">  bd.style.display = <span class="string">'none'</span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">t5</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> sel = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'select'</span>)[<span class="number">0</span>];</div><div class="line">  <span class="comment">// alert(sel.value);</span></div><div class="line">  <span class="keyword">if</span>(sel.value == <span class="string">''</span>)&#123;</div><div class="line">    alert(<span class="string">'至少选择一个'</span>);</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">t6</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> con = <span class="built_in">document</span>.getElementsByName(<span class="string">'email'</span>)[<span class="number">0</span>].value;</div><div class="line">  <span class="keyword">if</span>(con == <span class="string">''</span>)&#123;</div><div class="line">      <span class="built_in">document</span>.getElementsByName(<span class="string">'email'</span>)[<span class="number">0</span>].value = prompt(<span class="string">'请输入邮件地址：'</span>);</div><div class="line">      <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//和67行结合才能阻拦提交</span></div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/10/常见的正则/" rel="next" title="梳理常用的正则表达式">
+                <i class="fa fa-chevron-left"></i> 梳理常用的正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/30/算法/" rel="prev" title="7种常用的排序算法总结">
+                7种常用的排序算法总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="路人乙丶" />
+          <p class="site-author-name" itemprop="name">路人乙丶</p>
+           
+              <p class="site-description motion-element" itemprop="description">爱生活 爱代码</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要的DOM事件：（可以归为3类）"><span class="nav-number">1.</span> <span class="nav-text">- 主要的DOM事件：（可以归为3类）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标事件："><span class="nav-number">2.</span> <span class="nav-text">- 鼠标事件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#键盘事件："><span class="nav-number">3.</span> <span class="nav-text">-  键盘事件：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 2017 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">路人乙丶</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
