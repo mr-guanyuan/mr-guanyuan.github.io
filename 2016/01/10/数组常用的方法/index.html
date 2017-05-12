@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="数组的方法 增删方法 push(1,2,3,4); 从后面添加元素，可以同时加入多个unshift(a); 从前面添加 可以添加多个shift(); 无参数  从前面删除一个pop(); 无参数 从后面删除最后一个">
+<meta name="description" content="数组常用的一些方法 (1) shift():　　 alert(list.shift());　　 //删除数组的第一个元素,返回删除的值。这里是0　　 alert(list.length);　　//返回的数组长度是2 (2) unshift( i , j ):　　 list.unshift(3,4);　　//把参数加载数组的前面,现在list:中是3,4,0,1,2 　　 alert(list.le">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js数组常用的一些方法">
 <meta property="og:url" content="http://yoursite.com/2016/01/10/数组常用的方法/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="数组的方法 增删方法 push(1,2,3,4); 从后面添加元素，可以同时加入多个unshift(a); 从前面添加 可以添加多个shift(); 无参数  从前面删除一个pop(); 无参数 从后面删除最后一个">
-<meta property="og:updated_time" content="2017-05-12T02:54:56.089Z">
+<meta property="og:description" content="数组常用的一些方法 (1) shift():　　 alert(list.shift());　　 //删除数组的第一个元素,返回删除的值。这里是0　　 alert(list.length);　　//返回的数组长度是2 (2) unshift( i , j ):　　 list.unshift(3,4);　　//把参数加载数组的前面,现在list:中是3,4,0,1,2 　　 alert(list.le">
+<meta property="og:updated_time" content="2017-05-12T07:12:57.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js数组常用的一些方法">
-<meta name="twitter:description" content="数组的方法 增删方法 push(1,2,3,4); 从后面添加元素，可以同时加入多个unshift(a); 从前面添加 可以添加多个shift(); 无参数  从前面删除一个pop(); 无参数 从后面删除最后一个">
+<meta name="twitter:description" content="数组常用的一些方法 (1) shift():　　 alert(list.shift());　　 //删除数组的第一个元素,返回删除的值。这里是0　　 alert(list.length);　　//返回的数组长度是2 (2) unshift( i , j ):　　 list.unshift(3,4);　　//把参数加载数组的前面,现在list:中是3,4,0,1,2 　　 alert(list.le">
 
 
 
@@ -316,10 +316,20 @@
       
 
       
-        <p><blockquote class="blockquote-center">数组的方法</blockquote></p>
-<h3 id="增删方法"><a href="#增删方法" class="headerlink" title="增删方法"></a>增删方法</h3><blockquote>
-<p>push(1,2,3,4); 从后面添加元素，可以同时加入多个<br>unshift(a); 从前面添加 可以添加多个<br>shift(); 无参数  从前面删除一个<br>pop(); 无参数 从后面删除最后一个</p>
-</blockquote>
+        <p><blockquote class="blockquote-center">数组常用的一些方法</blockquote></p>
+<h3 id="1-shift"><a href="#1-shift" class="headerlink" title="(1) shift():"></a>(1) shift():</h3><p>　　 alert(list.shift());　　 //删除数组的第一个元素,返回删除的值。这里是0<br>　　 alert(list.length);　　//返回的数组长度是2</p>
+<h3 id="2-unshift-i-j"><a href="#2-unshift-i-j" class="headerlink" title="(2) unshift( i , j ):"></a>(2) unshift( i , j ):</h3><p>　　 list.unshift(3,4);　　//把参数加载数组的前面,现在list:中是3,4,0,1,2</p>
+<p>　　 alert(list.length);　　//现在数组的长度是5</p>
+ <a id="more"></a>
+<h3 id="3-pop"><a href="#3-pop" class="headerlink" title="(3) pop():"></a>(3) pop():</h3><p>　  list.pop();　　 //删除数组的最后一个元素,返回删除的值。这里是2<br>　  alert(list.length);　　//返回的数组长度是2</p>
+<h3 id="4-push-param"><a href="#4-push-param" class="headerlink" title="(4)push(param):"></a>(4)push(param):</h3><p>　  list.push(3);　　//将参数加载到数组的最后，现在List中是：0,1,2,3<br>　<br>　  alert(list.length);　　　//返回的数组长度是4</p>
+<h3 id="5-concat-i-j"><a href="#5-concat-i-j" class="headerlink" title="(5)concat( i , j ):"></a>(5)concat( i , j ):</h3><p>　  alert(list.concat(5,6));  //将参数与之前的数组list拼接起来，现在的list是：0,1,2,5,6</p>
+<p>　  alert(list.length);        //返回的数组长度是5</p>
+<h3 id="6-splice-start-deleteCount-val1-val2-…-："><a href="#6-splice-start-deleteCount-val1-val2-…-：" class="headerlink" title="(6) splice(start,deleteCount,val1,val2,…)："></a>(6) splice(start,deleteCount,val1,val2,…)：</h3><p>　  从start位置开始删除deleteCount项，并从该位置起插入val1,val2,…</p>
+<h3 id="7-reverse：将数组反序"><a href="#7-reverse：将数组反序" class="headerlink" title="(7) reverse：将数组反序"></a>(7) reverse：将数组反序</h3><p>　  var a = [1,2,3,4,5];<br>　  var b = a.reverse(); //a：[5,4,3,2,1] b：[5,4,3,2,1]</p>
+<h3 id="8-sort-orderfunction-：按指定的参数对数组进行排序"><a href="#8-sort-orderfunction-：按指定的参数对数组进行排序" class="headerlink" title="(8) sort(orderfunction)：按指定的参数对数组进行排序"></a>(8) sort(orderfunction)：按指定的参数对数组进行排序</h3><p>　  var a = [1,2,3,4,5];<br>　  var b = a.sort(); //a：[1,2,3,4,5] b：[1,2,3,4,5]</p>
+<h3 id="9-slice-start-end-：返回从原数组中指定开始下标到结束下标之间的项组成的新数组"><a href="#9-slice-start-end-：返回从原数组中指定开始下标到结束下标之间的项组成的新数组" class="headerlink" title="(9) slice(start,end)：返回从原数组中指定开始下标到结束下标之间的项组成的新数组"></a>(9) slice(start,end)：返回从原数组中指定开始下标到结束下标之间的项组成的新数组</h3><p>　   var a = [1,2,3,4,5];<br>　  var b = a.slice(2,5); //a：[1,2,3,4,5] b：[3,4,5]</p>
+<h3 id="10-join-separator-：将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符"><a href="#10-join-separator-：将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符" class="headerlink" title="(10) join(separator)：将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符"></a>(10) join(separator)：将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符</h3><p>　  var a = [1,2,3,4,5];<br>　  var b = a.join(“|”); //a：[1,2,3,4,5] b：”1|2|3|4|5”</p>
 
       
     </div>
@@ -366,8 +376,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/11/hello-world - 副本/" rel="prev" title="啦啦啦">
-                啦啦啦 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/02/06/jQuery小技巧方法/" rel="prev" title="jQuery����">
+                jQuery���� <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -440,12 +450,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
           
 
           
@@ -453,7 +472,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -488,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#增删方法"><span class="nav-number">1.</span> <span class="nav-text">增删方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-shift"><span class="nav-number">1.</span> <span class="nav-text">(1) shift():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-unshift-i-j"><span class="nav-number">2.</span> <span class="nav-text">(2) unshift( i , j ):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-pop"><span class="nav-number">3.</span> <span class="nav-text">(3) pop():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-push-param"><span class="nav-number">4.</span> <span class="nav-text">(4)push(param):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-concat-i-j"><span class="nav-number">5.</span> <span class="nav-text">(5)concat( i , j ):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-splice-start-deleteCount-val1-val2-…-："><span class="nav-number">6.</span> <span class="nav-text">(6) splice(start,deleteCount,val1,val2,…)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-reverse：将数组反序"><span class="nav-number">7.</span> <span class="nav-text">(7) reverse：将数组反序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-sort-orderfunction-：按指定的参数对数组进行排序"><span class="nav-number">8.</span> <span class="nav-text">(8) sort(orderfunction)：按指定的参数对数组进行排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-slice-start-end-：返回从原数组中指定开始下标到结束下标之间的项组成的新数组"><span class="nav-number">9.</span> <span class="nav-text">(9) slice(start,end)：返回从原数组中指定开始下标到结束下标之间的项组成的新数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-join-separator-：将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符"><span class="nav-number">10.</span> <span class="nav-text">(10) join(separator)：将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符</span></a></li></ol></div>
             
 
           </div>
