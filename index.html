@@ -589,6 +589,121 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/10/数组常用的方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="路人乙丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/01/10/数组常用的方法/" itemprop="url">js数组常用的一些方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-10T20:05:49+08:00">
+                2016-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><blockquote class="blockquote-center">数组的方法</blockquote></p>
+<h3 id="增删方法"><a href="#增删方法" class="headerlink" title="增删方法"></a>增删方法</h3><blockquote>
+<p>push(1,2,3,4); 从后面添加元素，可以同时加入多个<br>unshift(a); 从前面添加 可以添加多个<br>shift(); 无参数  从前面删除一个<br>pop(); 无参数 从后面删除最后一个</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/08/字符串操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -659,7 +774,7 @@
           
             <blockquote class="blockquote-center">字符串的方法</blockquote>
 
-<h4 id="注-字符串的所有方法都不会修改字符串本身"><a href="#注-字符串的所有方法都不会修改字符串本身" class="headerlink" title="注: #### ###### 字符串的所有方法都不会修改字符串本身"></a>注: #### ###### 字符串的所有方法都不会修改字符串本身</h4><h3 id="1、操作方法"><a href="#1、操作方法" class="headerlink" title="1、操作方法"></a>1、操作方法</h3><p>slice(参1，参2) 从start开始，截取到end位置，end取不到；参1：开始的位置 ；参2：结束的位置[start,end).遇到负数把length和负数相加<br>substring() 从start开始，截取到end位置，end取不到；遇到负数，把负数变为0，两个参数交换位置<br>substr() 从参1，start开始，截取参2，length个字符<br>charAt() 获取指定位置处的字符<br>str[0]; 和charAt 等效，IE8+支持<br>trim()  只能去除字符串前后的空白<br>split()  把字符串切割成字符数组<br>大小写转换：<br>to(Locale)UpperCase()  转换大写<br>to(Locale)LowerCase()  转换小写</p>
+<h4 id="注-字符串的所有方法都不会修改字符串本身"><a href="#注-字符串的所有方法都不会修改字符串本身" class="headerlink" title="注: 字符串的所有方法都不会修改字符串本身"></a>注: 字符串的所有方法都不会修改字符串本身</h4><h3 id="1、操作方法"><a href="#1、操作方法" class="headerlink" title="1、操作方法"></a>1、操作方法</h3><p>slice(参1，参2) 从start开始，截取到end位置，end取不到；参1：开始的位置 ；参2：结束的位置[start,end).遇到负数把length和负数相加<br>substring() 从start开始，截取到end位置，end取不到；遇到负数，把负数变为0，两个参数交换位置<br>substr() 从参1，start开始，截取参2，length个字符<br>charAt() 获取指定位置处的字符<br>str[0]; 和charAt 等效，IE8+支持<br>trim()  只能去除字符串前后的空白<br>split()  把字符串切割成字符数组<br>大小写转换：<br>to(Locale)UpperCase()  转换大写<br>to(Locale)LowerCase()  转换小写</p>
 <h3 id="2、查找字符串中所有的o-的位置"><a href="#2、查找字符串中所有的o-的位置" class="headerlink" title="2、查找字符串中所有的o 的位置"></a>2、查找字符串中所有的o 的位置</h3><p>var str= “dmsosekkdsoosns”;<br>   varindex= -1；<br>do{<br>index = str.indexOf(“o”,index + 1);<br>console.log(index);<br>}while(index != -1);</p>
 <h3 id="3、将字符串中所有的o替换成！"><a href="#3、将字符串中所有的o替换成！" class="headerlink" title="3、将字符串中所有的o替换成！"></a>3、将字符串中所有的o替换成！</h3><p>do{<br>str = str.replace(“o”,”!”);<br>}while(str.indexOf(“o”)!= -1);<br>console.log(str);</p>
 <h3 id="4、统计字符串中每个字符出现的次数"><a href="#4、统计字符串中每个字符出现的次数" class="headerlink" title="4、统计字符串中每个字符出现的次数"></a>4、统计字符串中每个字符出现的次数</h3><p>var o = {};<br>for (var i = 0; i &lt; str.length; i ++) {<br>var item = str.charAt(i);<br>if (o[item]) {<br>o[item] ++;  //如果以前有了值，让这个值加一<br>}else {<br>o[item] = 1; //如果之前没有，现在进来就有了一次了<br>}<br>}<br>for (var key in o) {<br>console.log(key+”出现了” + o[key] + “次”);<br>}</p>
@@ -776,9 +891,9 @@
       
         
           <p><blockquote class="blockquote-center">Document Object Model 文档对象模型</blockquote></p>
-<h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><p>文档(Document)：就是指HTML或者XML文件<br>节点(Node)：HTML文档中的所有内容都可以称之为节点，常见的节点有<br>元素节点 属性节点 文本节点 注释节点<br>元素(Element)：HTML文档中的标签可以称为元素</p>
-<h3 id="2、结构概念"><a href="#2、结构概念" class="headerlink" title="2、结构概念"></a>2、结构概念</h3><p>父节点 当前节点的父级<br>子节点 当前节点的子级<br>兄弟节点 和当前节点同属一个父级的节点</p>
-<h3 id="3、-获取元素"><a href="#3、-获取元素" class="headerlink" title="3、.获取元素"></a>3、.获取元素</h3><p>getElementById<br>getElementsByTagName 通过标签名寻找一类元素（伪数组）<br>
+<h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><p>　　文档(Document)：就是指HTML或者XML文件<br>　　节点(Node)：HTML文档中的所有内容都可以称之为节点，常见的节点有<br>　　元素节点 属性节点 文本节点 注释节点<br>　　元素(Element)：HTML文档中的标签可以称为元素</p>
+<h3 id="2、结构概念"><a href="#2、结构概念" class="headerlink" title="2、结构概念"></a>2、结构概念</h3><p>　　父节点 当前节点的父级<br>　　子节点 当前节点的子级<br>　　兄弟节点 和当前节点同属一个父级的节点</p>
+<h3 id="3、-获取元素"><a href="#3、-获取元素" class="headerlink" title="3、.获取元素"></a>3、.获取元素</h3><p>　　getElementById<br>　　getElementsByTagName 通过标签名寻找一类元素（伪数组）<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/01/08/js相关Dom操作/#more" rel="contents">
@@ -980,7 +1095,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
